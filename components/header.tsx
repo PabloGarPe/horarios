@@ -4,7 +4,7 @@ export const Header = () => {
             <div className="flex flex-col justify-center items-center min-h-[10vh] py-3">
                 <h1 className="md:text-3xl text-nowrap font-bold italic text-center">HORARIO PCEO MATEMÁTICAS E INFORMÁTICA 2º</h1>
                 <br />
-                <p className="text-lg text-center italic font-semibold">POR PABLO GARCÍA PERNAS & DIEGO DÍAZ MENDAÑA</p>
+                <p className="md:text-lg text-center italic font-semibold">POR PABLO GARCÍA PERNAS & DIEGO DÍAZ MENDAÑA</p>
             </div>
         </header>
     )
