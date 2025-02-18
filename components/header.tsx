@@ -1,10 +1,8 @@
 export const Header = () => {
     return ( 
-        <header>
-            <div className="bg-divs-200 w-full min-h-[10vh] fixed z-0 dark:bg-divs-600">
-                <div className="flex flex-col justify-center items-center h-full py-3">
-                    <h1 className="text-3xl font-bold italic">HORARIO PCEO MATEMÁTICAS E INFORMÁTICA 2º</h1>
-                </div>
+        <header className="fixed top-0 left-0 w-full bg-divs-200 dark:bg-divs-600 z-50">
+            <div className="flex justify-center items-center min-h-[10vh] py-3">
+                <h1 className="md:text-3xl text-nowrap font-bold italic text-center">HORARIO PCEO MATEMÁTICAS E INFORMÁTICA 2º</h1>
             </div>
         </header>
     )
