@@ -109,7 +109,7 @@ export default function Home() {
                     <td
                       key={colIndex}
                       rowSpan={rowSpan}
-                      className="py-1 px-2 bg-divs-100 text-center align-middle font-semibold border border-black"
+                      className={`py-1 px-2 text-center max-w-10 align-middle font-semibold border border-black ${entry.Room.toLowerCase().includes("ex") ? "bg-red-300" : "bg-divs-100"}`}
                     >
                       {entry.Subject} <br /> {entry.Room}
                     </td>
