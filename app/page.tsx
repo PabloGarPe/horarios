@@ -28,6 +28,21 @@ export default function Home() {
       });
   }, []);
 
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "ArrowLeft") {
+      handleWeekChange(-1);
+    } else if (event.key === "ArrowRight") {
+      handleWeekChange(1);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown)
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [currentWeek,schedule])
+
   const handleWeekChange = (direction: number) => {
     const weeks = Object.keys(schedule);
     const currentIndex = weeks.indexOf(currentWeek);
@@ -44,16 +59,16 @@ export default function Home() {
       <div className="flex flex-col items-center mb-4">
         <h1 className="text-xl font-bold mb-4">Semana del {currentWeek}</h1>
         <div className="mb-4">
-          <button
+            <button
             onClick={() => handleWeekChange(-1)}
             className={`bg-blue-500 text-white px-3 py-1 rounded mr-2 hover:bg-blue-700 text-sm ${
               currentWeek === Object.keys(schedule)[0]
-                ? "opacity-50 cursor-not-allowed"
-                : ""
+              ? "opacity-50 cursor-not-allowed"
+              : ""
             }`}
-          >
+            >
             Previous Week
-          </button>
+            </button>
           <button
             onClick={() => handleWeekChange(1)}
             className={`bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700 text-sm ${
@@ -109,7 +124,11 @@ export default function Home() {
                     <td
                       key={colIndex}
                       rowSpan={rowSpan}
-                      className={`py-1 px-2 text-center max-w-10 align-middle font-semibold border border-black ${entry.Room.toLowerCase().includes("ex") ? "bg-red-300" : "bg-divs-100"}`}
+                      className={`py-1 px-2 text-center max-w-10 align-middle font-semibold border border-black ${
+                        entry.Room.toLowerCase().includes("ex")
+                          ? "bg-red-300"
+                          : "bg-divs-100"
+                      }`}
                     >
                       {entry.Subject} <br /> {entry.Room}
                     </td>
@@ -131,7 +150,10 @@ export default function Home() {
                   })
                 ) {
                   return (
-                    <td key={colIndex} className="py-1 px-2 border border-black"></td>
+                    <td
+                      key={colIndex}
+                      className="py-1 px-2 border border-black"
+                    ></td>
                   );
                 }
                 return null;
