@@ -103,7 +103,7 @@ export default function Home() {
         <tbody>
           {timeSlots.map((slot, rowIndex) => (
             <tr key={slot} className="">
-              <td className="py-1 px-2 max-w-3 border border-black">{slot}</td>
+              <td className="py-1 px-2 border border-black max-w-3">{slot}</td>
               {daysOfWeek.map((day, colIndex) => {
                 const dayEntries = schedule[currentWeek]?.filter((entry) => {
                   const entryDate = new Date(entry.Day);
@@ -124,7 +124,7 @@ export default function Home() {
                     <td
                       key={colIndex}
                       rowSpan={rowSpan}
-                      className={`py-1 px-2 text-center max-w-10 align-middle font-semibold border border-black ${
+                      className={`py-1 px-2 text-center align-middle font-semibold border border-black md:w-[9rem] lg:w-[18rem] ${
                         entry.Room.toLowerCase().includes("ex")
                           ? "bg-red-300"
                           : "bg-divs-100"
