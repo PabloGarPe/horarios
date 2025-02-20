@@ -124,7 +124,7 @@ export default function Home() {
                     <td
                       key={colIndex}
                       rowSpan={rowSpan}
-                      className={`py-1 px-2 text-center align-middle font-semibold border border-black lg:w-[18rem] ${
+                      className={`py-1 px-2 text-center align-middle font-semibold border border-black ${
                         entry.Room.toLowerCase().includes("ex")
                           ? "bg-red-300"
                           : "bg-divs-100"
