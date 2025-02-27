@@ -50,6 +50,10 @@ Las contribuciones son bienvenidas. Para contribuir:
     ```
 5. Abre un pull request en GitHub
 
+
+# Compartir desde local
+### Video de Minidudev
+https://x.com/midudev/status/1895143563089887630?s=46&t=G0tVy8X9XMh0g2hMlPM1tQ 
 ---
 # Licencia
 Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más información.
