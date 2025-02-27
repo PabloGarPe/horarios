@@ -1,13 +1,11 @@
 import { useState } from 'react'
+import { HeaderNav } from './components/headerNav'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-     <div className = "bg-amber-300">
-      <h1 classNmae = "text-4xl">Me cago en tus muertos</h1>
-     </div>
+      <HeaderNav/>
     </>
   )
 }

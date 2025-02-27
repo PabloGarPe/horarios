@@ -1,0 +1,22 @@
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.btns-div{
+    max-width: 30vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
