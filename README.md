@@ -1,19 +1,57 @@
-Horario PCEO Matemáticas e Ingeniería del Software
+# 📅 Horarios API y Web
 
-Este proyecto es una aplicación web desarrollada con Next.js para visualizar el horario del PCEO Matemáticas e Ingeniería del Software. Se trata de una aplicación solo de frontend que muestra las asignaturas, horarios y aulas de forma interactiva.
+## Descripción
+Este proyecto consiste en el diseño visual de una **página web** con una **API** para gestionar y visualizar horarios. Su objetivo es proporcionar una interfaz intuitiva para que los usuarios puedan consultar y administrar horarios de manera eficiente y precisa en el *PCEO de Ingeniería Informática de Software y Matemáticas* de la Universidad de Oviedo
 
-🚀 Características
+-----
+## 🚀 Tecnologías Utilizadas
+- React / Next.js 
+- TailwindCSS (o el framework CSS que uses)
+- TypeScript / JavaScript
 
-📅 Visualización del horario en una interfaz amigable.
 
-🎨 Diseño responsive, adaptable a diferentes dispositivos.
+## 📂 Estructura del Proyecto
+```plaintext
+/horarios
+  /.firebase/
+  /app
+    global.css
+    layout.tsx
+    page.tsx
+  /components
+  /src
+  .gitignore
+  next.config.ts
+  tailwind.config.ts
+  ....
+  README.md
+```
 
-🔍 Filtros por curso y semestre para una navegación intuitiva.
+----
+# Configuración
+...
 
-⚡ Rendimiento optimizado gracias a la arquitectura de Next.js.
+----
+# Contribuciones
+Las contribuciones son bienvenidas. Para contribuir:
+1. Realiza un fork del repositorio.
+2. Crea una nueva branch:
+    ```sh
+    git checkout -b feature-nueva
+    ```
+3. Realiza tus cambios y haz un commit:
+    ```sh
+    git add .
+    git commit -am "commit-title"
+    ```
+4. Haz un push a la branch:
+    ```sh
+    git push origin feature-nueva
+    ```
+5. Abre un pull request en GitHub
 
-🛠 Tecnologías utilizadas
+---
+# Licencia
+Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más información.
 
-Next.js - Framework de React para SSR y SSG.
-
-Tailwind CSS - Framework de estilos para un diseño moderno y eficiente.
+👨‍💻 Desarrollado por Pablo García Pernas y Diego Díaz Mendaña
