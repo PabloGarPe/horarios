@@ -1,7 +1,11 @@
 export const YearBtn = ({ year, setYear }) => {
     return (
-        <button className="brutalist-button p-2 rounded-none border-4 border-black bg-white text-black hover:bg-gray-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" onClick={() => setYear(year)}>
-            <p className="font-mono text-lg font-extrabold">Year: {year}</p>
-        </button>
+        <button class="bg-black rounded-none mx-2">
+  <span class="bg-white block p-4 -translate-x-2 truncate
+  -translate-y-2 border-black border-2 rounded-none text-2xl active:bg-red-600 active:transition-colors active:duration-200 hover:translate-x-0 hover:translate-y-0 transition-all" onClick={() => setYear(year)}> 
+       {year} year
+  </span> 
+ </button>
+       
     )
 }
