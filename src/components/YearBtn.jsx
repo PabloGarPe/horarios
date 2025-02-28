@@ -12,8 +12,8 @@ export const YearBtn = ({ year }) => {
 
     return (
         <button className="bg-black rounded-none mx-2" onClick={() => yearClicked(clicked)}>
-            <span className={`bg-white block px-4 py-2 -translate-x-2 truncate
-  -translate-y-2 border-black border-2 rounded-none text-xl hover:translate-x-0 hover:translate-y-0 transition-all font-mono font-bold ${clicked ? "btn-clicked" : ""}`}>
+            <span className={` block px-4 py-2  truncate
+   border-black border-2 rounded-none text-xl hover:translate-x-0 hover:translate-y-0 transition-all font-mono font-bold ${clicked ? "bg-red-500 text-black" : "bg-white -translate-x-2 -translate-y-2"}`}>
                 Year {year}
             </span>
         </button>
@@ -21,4 +21,5 @@ export const YearBtn = ({ year }) => {
     )
 }
 
-//active:bg-red-600 active:transition-colors active:duration-200 
+//active:bg-red-600 active:transition-colors active:duration-200
+// si quieres q vuelva a su position y solo cambie el fondo, cambia los translate para fuera del ternario 
