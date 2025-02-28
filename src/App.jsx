@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { HeaderNav } from './components/headerNav'
+import { HeaderNav } from './components/HeaderNav'
 
 function App() {
 
