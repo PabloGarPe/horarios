@@ -11,9 +11,9 @@ export const YearBtn = ({ year }) => {
     }
 
     return (
-        <button className="bg-black rounded-none mx-2">
+        <button className="bg-black rounded-none mx-2" onClick={() => yearClicked(clicked)}>
             <span className={`bg-white block px-4 py-2 -translate-x-2 truncate
-  -translate-y-2 border-black border-2 rounded-none text-xl hover:translate-x-0 hover:translate-y-0 transition-all font-mono font-bold ${clicked ? "active:bg-red-600 active:transition-colors active:duration-200" : ""}`} onClick={() => yearClicked(clicked)}>
+  -translate-y-2 border-black border-2 rounded-none text-xl hover:translate-x-0 hover:translate-y-0 transition-all font-mono font-bold ${clicked ? "btn-clicked" : ""}`}>
                 Year {year}
             </span>
         </button>
