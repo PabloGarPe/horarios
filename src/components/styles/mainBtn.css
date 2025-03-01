@@ -1,0 +1,4 @@
+.btn-clicked {
+    background-color: var(--pastel-red);
+    color: black;
+}

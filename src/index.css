@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  
+    --white-perl: #FFF6DA;
+    --pastel-yellow: #F4D793;
+    --pastel-red: #A94A4A;
+    --pastel-red-light: #a94a4a94;
+    --green-grass: #889E73;
+}
+
+body {
+    background-color: var(--white-perl);
 }

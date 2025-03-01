@@ -13,6 +13,14 @@
     margin-bottom: 20px;
 }
 
+.inf-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
 .btns-div{
     max-width: 30vw;
     display: flex;
@@ -21,5 +29,3 @@
     gap: 1em;
     align-items: center;
 }
-
-
