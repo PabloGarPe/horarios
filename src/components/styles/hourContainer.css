@@ -2,3 +2,8 @@
     border-color: var(--pastel-red);
     background-color: var(--pastel-red-light);
 }
+
+.subject-section--none {
+    border-color: rgb(192, 192, 192);
+    background-color: rgba(211, 211, 211, 0.542);
+}
