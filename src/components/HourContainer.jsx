@@ -4,12 +4,12 @@ import './styles/hourContainer.css';
 export const HourContainer = ({ subject }) => {
     if (subject) {
         return (
-            <section className='subject-section flex flex-col w-[90%] px-2 pt-2 pb-1 border-2'>
+            <section className='subject-section flex flex-col w-[90%] px-2 pt-1 pb-1 border-2'>
                 <header className='flex flex-row justify-between items-center'>
                     <h1 className='font-mono text-sm font-medium'>HH:MM - HH:MM</h1>
                     <img src={sampleLogo} alt="sample logo" className='w-6' />
                 </header>
-                <main className='flex flex-row justify-between items-center pt-2'>
+                <main className='flex flex-row justify-between items-center pt-1'>
                     <h1 className='font-["Impact"] text-base font-semibold text-center'>
                         {subject}
                     </h1>
@@ -19,12 +19,12 @@ export const HourContainer = ({ subject }) => {
         )
     } else {
         return (
-            <section className='subject-section--none flex flex-col w-[90%] px-2 pt-2 pb-1 border-2'>
+            <section className='subject-section--none flex flex-col w-[90%] px-2 pt-1 pb-1 border-2'>
                 <header className='flex flex-row justify-between items-center'>
                     <h1 className='font-mono text-sm font-medium'>HH:MM - HH:MM</h1>
                     <img src={sampleLogo} alt="sample logo" className='w-6 invisible' />
                 </header>
-                <main className='flex flex-row justify-between items-center pt-2'>
+                <main className='flex flex-row justify-between items-center pt-1'>
                     <h1 className='font-["Impact"] text-base font-semibold text-center invisible'>
                         Mates
                     </h1>

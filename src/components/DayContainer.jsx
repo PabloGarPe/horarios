@@ -10,6 +10,15 @@ export const DayContainer = () => {
             <main className='py-2 flex flex-col gap-2 items-center'>
                 <HourContainer subject={null}/>
                 <HourContainer subject="Mates" />
+                <HourContainer subject="Lengua" />
+                <HourContainer />
+                <HourContainer subject="Química" />
+                <HourContainer />
+                <HourContainer subject="Historia" />
+                <HourContainer subject="Biología" />
+                <HourContainer subject="Geografía" />
+                <HourContainer />
+                <HourContainer subject="Inglés" />
             </main>
         </section>
     )

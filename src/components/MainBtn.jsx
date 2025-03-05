@@ -16,6 +16,5 @@ export const MainBtn = ({children}) => {
                 {children}
             </span>
         </button>
-
     )
 }
