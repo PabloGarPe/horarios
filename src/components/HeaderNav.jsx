@@ -7,7 +7,7 @@ import { ThemeBtn } from './ThemeBtn'
 
 export const HeaderNav = ({ }) => {
     return (
-        <section className="main-wrapper bg-white border-b-8 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4 sm:px-6 sticky top-0 z-10 dark:bg-red" >
+        <section className="main-wrapper bg-white border-b-8 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4 sm:px-6 sticky top-0 z-10 dark:bg-red-500" >
             <div className="title-div">
                 <h1 className="text-3xl sm:text-4xl font-extrabold font-mono">PCEO Informática + Matemáticas</h1>
                 <ThemeBtn>

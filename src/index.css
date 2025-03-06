@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
     --white-perl: #FFF6DA;
     --pastel-yellow: #F4D793;

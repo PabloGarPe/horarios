@@ -11,11 +11,10 @@ export const ThemeBtn = ({children}) => {
         setClicked(newClicked)
     }
 
-    const { theme, toggleTheme } = useTheme()
+    const { toggleTheme } = useTheme()
 
     const handleThemeChange = () => {
         toggleTheme()
-        document.documentElement.classList.toggle(theme)
     }
 
     const triggerFunctions = (clicked) => {
