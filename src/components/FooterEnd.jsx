@@ -5,7 +5,7 @@ export const FooterEnd = () => {
         <section className='bg-black flex flex-col items-center text-white p-10'>
             <div className="flex flex-row justify-between w-full pb-10">
                 <div>
-                    <h1 className="text-2xl font-extrabold font-mono">Math Degree Schedule</h1>
+                    <h1 className="text-2xl font-extrabold font-mono">PCEO Degree Schedule</h1>
                     <p className="text-base font-mono">© 2025 Uniovi</p>
                 </div>
                 <div className="flex flex-row">
