@@ -4,7 +4,7 @@ export const WeekSelector = () => {
            
             <div className="bg-black rounded-none mx-2">
                 <select name="week-selector" id="week-selector" className="px-4 py-2  truncate
-   border-black border-2 rounded-none text-xl hover:translate-x-0 hover:translate-y-0 transition-all font-mono font-bold -translate-x-2 -translate-y-2 bg-white focus:outline-none">
+   border-black border-2 rounded-none text-xl hover:translate-x-0 hover:translate-y-0 transition-all font-mono font-bold -translate-x-2 -translate-y-2 bg-white focus:outline-none dark:text-white dark:bg-gray-600">
                     <option value="1">Semana 1</option>
                     <option value="2">Semana 2</option>
                     <option value="3">Semana 3</option>

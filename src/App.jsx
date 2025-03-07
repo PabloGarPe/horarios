@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <HeaderNav />
-      <main className="pt-3 px-5 pb-5 flex flex-row justify-between">
+      <main className="pt-3 px-5 pb-5 flex flex-row justify-between dark:bg-gray-700">
         <DayContainer/>
         <DayContainer/>
         <DayContainer/>
