@@ -22,7 +22,7 @@ export const HourContainer = ({ subject }) => {
                     <img src={logoImgSrc(subject)} alt={`${subject} logo`} className='w-5 pb-1' />
                 </header>
                 <main className='flex flex-row justify-between items-center pt-1'>
-                    <h1 className='font-["Impact"] text-base font-semibold text-center  dark:text-white'>
+                    <h1 className='font-["Impact"] text-base font-[600] text-center  dark:text-white'>
                         {subject}
                     </h1>
                     <h2 className='font-["Impact"] text-base text-center  dark:text-white'>Aula</h2>
@@ -37,7 +37,7 @@ export const HourContainer = ({ subject }) => {
                     <img src={logoImgSrc()} alt="sample logo" className='w-6 invisible' />
                 </header>
                 <main className='flex flex-row justify-between items-center pt-1'>
-                    <h1 className='font-["Impact"] text-base font-semibold text-center invisible'>
+                    <h1 className='font-["Impact"] text-base font-[600] text-center invisible'>
                         Mates
                     </h1>
                     <h2 className='font-["Impact"] text-base text-center invisible'>Aula</h2>
