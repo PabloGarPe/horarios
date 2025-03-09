@@ -1,4 +1,4 @@
-import githubLogo from '../images/github-ico.svg';
+import linkedinLogo from '../images/linkedin-ico.svg'
 
 export const FooterEnd = () => {
     return (
@@ -19,7 +19,7 @@ export const FooterEnd = () => {
             </div>
 
             <div>
-                <h2 className='font-mono text-xl'>Created by Pablo García Pernas & Diego Díaz Mendaña</h2>
+                <h2 className='font-mono text-xl'>Created by Pablo García Pernas <a href="#" target="_blank" rel="noreferrer"><img src={linkedinLogo} alt="linkedin logo for Pablo García Pernas" className="w-6 h-6 inline-block" /></a> & Diego Díaz Mendaña <a href="https://www.linkedin.com/in/diego-d%C3%ADaz-menda%C3%B1a/" target="_blank" rel="noreferrer"><img src={linkedinLogo} alt="linkedin logo for Diego Díaz Mendaña" className="w-6 h-6 inline-block" /></a></h2>
             </div>
         </section>
     )
