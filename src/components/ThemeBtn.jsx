@@ -24,8 +24,8 @@ export const ThemeBtn = ({children}) => {
 
     return (
         <button className="bg-black rounded-none mx-2" onClick={() => triggerFunctions(clicked)}>
-            <span className={` block px-4 py-2  truncate
-   border-black border-2 rounded-none text-xl hover:translate-x-0 hover:translate-y-0 transition-all font-mono font-bold -translate-x-2 -translate-y-2 ${clicked ? "btn-clicked" : "bg-white"}`}>
+            <span className={` block lg:px-4 lg:py-2 px-3 py-1.5  truncate
+   border-black border-2 rounded-none lg:text-xl text-base hover:translate-x-0 hover:translate-y-0 transition-all font-mono font-bold -translate-x-2 -translate-y-2 ${clicked ? "btn-clicked" : "bg-white"}`}>
                 {children}
             </span>
         </button>
