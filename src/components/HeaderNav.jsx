@@ -22,7 +22,7 @@ export const HeaderNav = ({ }) => {
             <section className="pt-5 md:pt-0 flex md:flex-row md:justify-between items-center md:gap-[1em] gap-[1.5em] flex-col">
                 {/* Contenedor con scroll horizontal solo para los botones */}
                 <div className="w-full overflow-x-auto whitespace-nowrap flex justify-center md:justify-start">
-                    <div className="flex lg:gap-[1em] gap-[0.5em] items-center pt-[10px] pl-4 md:pl-0 pr-4">
+                    <div className="w-[100%] flex lg:gap-[1em] gap-[0.5em] justify-around md:justify-start items-center pt-[10px]">
                         {years.map((year, index) => (
                             <MainBtn
                                 key={index}
