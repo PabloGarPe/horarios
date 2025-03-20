@@ -1,11 +1,8 @@
 import { DayContainer } from './components/DayContainer'
 import { HeaderNav } from './components/HeaderNav'
 import { FooterEnd } from './components/FooterEnd'
-import { exitFetch } from './utils/fetcher'
 
 function App() {
-
-  
 
   return (
     <>

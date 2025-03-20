@@ -2,7 +2,7 @@ import linkedinLogo from '../images/linkedin-ico.svg'
 
 export const FooterEnd = () => {
     return (
-        <section className='bg-black flex flex-col items-center text-white p-10'>
+        <section className='fixed bottom-0 w-[100vw] bg-black flex flex-col items-center text-white p-10'>
             <div className="flex flex-row justify-between w-full pb-10">
                 <div>
                     <h1 className="text-2xl font-extrabold font-mono">PCEO Degree Schedule</h1>
