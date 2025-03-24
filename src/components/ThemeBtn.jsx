@@ -4,29 +4,33 @@ import { useTheme } from "./ThemeContext";
 
 export const ThemeBtn = ({ children }) => {
     const [clicked, setClicked] = useState(() => {
-        const storedTheme = localStorage.getItem("theme");
+        const storedTheme = localStorage.getItem("theme") || "light";
+        if (!localStorage.getItem("theme")) {
+            localStorage.setItem("theme", "light");
+        }
         return storedTheme === "dark";
     });
 
     const { toggleTheme } = useTheme();
 
-    // Alterna el tema y actualiza el estado
     const handleThemeChange = () => {
-        toggleTheme();
-        const newTheme = clicked ? "light" : "dark";
+        const newTheme = !clicked ? "dark" : "light"; // Invertimos la lógica aquí
         localStorage.setItem("theme", newTheme);
-
+        
         if (newTheme === "dark") {
             document.documentElement.classList.add("dark");
         } else {
             document.documentElement.classList.remove("dark");
         }
-
+        
+        toggleTheme();
         setClicked(!clicked);
     };
 
+    // Este useEffect se ejecuta solo una vez al montar el componente
     useEffect(() => {
-        const storedTheme = localStorage.getItem("theme");
+        const storedTheme = localStorage.getItem("theme") || "light";
+        // Aplicar el tema inicial
         if (storedTheme === "dark") {
             document.documentElement.classList.add("dark");
             setClicked(true);

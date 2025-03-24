@@ -1,4 +1,4 @@
-class Week {
+export class Week {
     constructor(firstDay){
         this.firstDay = firstDay;
         this.days = [];

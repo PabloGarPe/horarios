@@ -1,28 +1,39 @@
 import { exitFetch } from "./fetcher";
-import { Year, Month, Day, Subject } from "../models";
+import { Year } from "../models/Year";
+import { Day } from "../models/Day";
+import { Subject } from "../models/Subject";
+import { Week } from "../models/Week";
 
 
 jsonData = exitFetch();
 
-daysArray = jsonData.days;
+// daysArray = jsonData.days;
 subjectsArray = jsonData.subjects;
 
 
-const parseDays = (subjectsArray) => {
+const parseDays = (daysList) => {
     year = new Year(2);
 
-    daysArray.forEach(day => {
+    daysList.forEach(day => {
         if(day.subject_year === 2){
-            if(!(day.month in year.months)){
-                new Month(day.month);
-                year.addMonth(day.month);
+            if(!(day.week in year.week)){
+                new Week(day.week);
+                year.addWeek(day.week);
             }
-            if(!(day.day in year.months[day.month].days)){
+            if(!(day.day in year.week[day.week].days)){
                 new Day(day.day, day.month);
-                year.months[day.month].addDay(day.day);
+                year.week[day.week].addDay(day.day);
             }
-            newsubject = new Subject();
-            year.months[day.month].days[day.day].addSubject(day.subject);
+            newSubject = new Subject(day.subject_name, day.room, day.hora_inicio, day.hora_fin, day.priority);
+            year.week[day.week].days[day.day].addSubject(day.subject);
         }
     });
+}
+
+export const generateDays = (listToParse) => {
+    try {
+        return parseDays(listToParse);
+    } catch (e) {
+        console.error(e);
+    }
 }

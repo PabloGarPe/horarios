@@ -1,4 +1,4 @@
-class Subject {
+export class Subject {
     constructor(name, room, startTime, endTime, priority) {
         this.name = name;
         this.room = room;

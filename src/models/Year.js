@@ -1,4 +1,4 @@
-class Year {
+export class Year {
     constructor(yearNumber){
         this.yearNumber = yearNumber;
         this.weeks = [];
