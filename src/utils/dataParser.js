@@ -4,13 +4,6 @@ import { Day } from "../models/Day";
 import { Subject } from "../models/Subject";
 import { Week } from "../models/Week";
 
-
-jsonData = exitFetch();
-
-// daysArray = jsonData.days;
-subjectsArray = jsonData.subjects;
-
-
 const parseDays = (daysList) => {
     year = new Year(2);
 
@@ -30,8 +23,10 @@ const parseDays = (daysList) => {
     });
 }
 
-export const generateDays = (listToParse) => {
+export const generateDays = async (listToParse) => {
     try {
+        const jsonData = await exitFetch()
+        listToParse = jsonData.subjects;
         return parseDays(listToParse);
     } catch (e) {
         console.error(e);

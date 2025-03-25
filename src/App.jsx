@@ -5,6 +5,8 @@ import { generateDays } from './utils/dataParser'
 
 function App() {
 
+  console.log(generateDays());
+
   return (
     <>
       <HeaderNav />
