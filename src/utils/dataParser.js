@@ -1,34 +1,19 @@
-import { exitFetch } from "./fetcher";
-import { Year } from "../models/Year";
-import { Day } from "../models/Day";
-import { Subject } from "../models/Subject";
-import { Week } from "../models/Week";
+import { Subject } from '../models/Subject';
+import { Year } from '../models/Year';
 
-const parseDays = (daysList) => {
-    year = new Year(2);
+export const parseSubjectsToYears = (subjectsArray) => {
+  const courseMap = {}; // ej: {1: Year, 2: Year}
 
-    daysList.forEach(day => {
-        if(day.subject_year === 2){
-            if(!(day.week in year.week)){
-                new Week(day.week);
-                year.addWeek(day.week);
-            }
-            if(!(day.day in year.week[day.week].days)){
-                new Day(day.day, day.month);
-                year.week[day.week].addDay(day.day);
-            }
-            newSubject = new Subject(day.subject_name, day.room, day.hora_inicio, day.hora_fin, day.priority);
-            year.week[day.week].days[day.day].addSubject(day.subject);
-        }
-    });
-}
+  subjectsArray.forEach(item => {
+    const subject = new Subject(item);
+    const course = subject.year; // Aquí usamos el curso académico (1, 2, 3...)
 
-export const generateDays = async (listToParse) => {
-    try {
-        const jsonData = await exitFetch()
-        listToParse = jsonData.subjects;
-        return parseDays(listToParse);
-    } catch (e) {
-        console.error(e);
+    if (!courseMap[course]) {
+      courseMap[course] = new Year(subject.day.year); // seguimos usando Year como estructura
     }
-}
+
+    courseMap[course].addSubject(subject);
+  });
+
+  return courseMap;
+};

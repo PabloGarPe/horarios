@@ -1,25 +1,26 @@
-export const WeekSelector = () => {
+export const WeekSelector = ({ weeks = [], selectedWeek, onSelectWeek }) => {
     return (
-        <section>
-           
-            <div className="bg-black rounded-none mx-2">
-                <select name="week-selector" id="week-selector" className="lg:px-4 lg:py-2 px-3 py-1.5 truncate
-   border-black border-2 rounded-none lg:text-xl text-base hover:translate-x-0 hover:translate-y-0 transition-all font-mono font-bold -translate-x-2 -translate-y-2 bg-white focus:outline-none dark:text-white dark:bg-gray-600">
-                    <option value="1">Semana 1</option>
-                    <option value="2">Semana 2</option>
-                    <option value="3">Semana 3</option>
-                    <option value="4">Semana 4</option>
-                    <option value="5">Semana 5</option>
-                    <option value="6">Semana 6</option>
-                    <option value="7">Semana 7</option>
-                    <option value="8">Semana 8</option>
-                    <option value="9">Semana 9</option>
-                    <option value="10">Semana 10</option>
-                    <option value="11">Semana 11</option>
-                    <option value="12">Semana 12</option>
-                    <option value="13">Semana 13</option>
-                </select>
-            </div>
-        </section>
-    )
-}
+      <section>
+        <div className="bg-black rounded-none mx-2">
+          <select
+            name="week-selector"
+            id="week-selector"
+            value={selectedWeek}
+            onChange={(e) => onSelectWeek(e.target.value)}
+            className="lg:px-4 lg:py-2 px-3 py-1.5 truncate
+              border-black border-2 rounded-none lg:text-xl text-base
+              hover:translate-x-0 hover:translate-y-0 transition-all font-mono font-bold
+              -translate-x-2 -translate-y-2 bg-white focus:outline-none
+              dark:text-white dark:bg-gray-600"
+          >
+            {weeks.map((week) => (
+              <option key={week.value} value={week.value}>
+                {week.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      </section>
+    );
+  };
+  
