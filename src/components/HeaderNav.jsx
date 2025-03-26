@@ -4,7 +4,6 @@ import './styles/headerNav.css'
 import { WeekSelector } from './WeekSelector'
 import { MainBtn } from './MainBtn'
 import { ThemeBtn } from './ThemeBtn'
-import { useState, useEffect } from 'react'
 import { courses as courseOptions } from '../utils/courses';
 
 export const HeaderNav = ({

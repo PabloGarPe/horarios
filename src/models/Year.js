@@ -32,12 +32,14 @@ export class Year {
       
         const days = week.getSortedDays();
         if (!days || days.length === 0) return null;
-      
+
+
         const firstDay = days[0];
-        if (!firstDay || !firstDay.weekday || firstDay.dia === undefined || firstDay.mes === undefined) {
+        
+        if (!firstDay || !firstDay.weekDay || firstDay.dia === undefined || firstDay.mes === undefined) {
           return `Semana ${weekNumber}`;
         }
-      
-        return `${firstDay.weekday} ${firstDay.dia}/${firstDay.mes}`;
+
+        return `${firstDay.weekDay} ${firstDay.dia}/${firstDay.mes}`;
       }
 }

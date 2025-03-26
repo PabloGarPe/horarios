@@ -7,7 +7,7 @@ const normalizeSubjectName = (subject) => {
   return subject.split(' ')[0].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
-export const HourContainer = ({ subject, height = 60, isLast = false }) => {
+export const HourContainer = ({ subject, height = 30, isLast = false }) => {
   const logoImgSrc = (subjectName) => {
     const normalized = normalizeSubjectName(subjectName);
     return subjectLogos[normalized] || sampleLogo;

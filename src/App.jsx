@@ -4,7 +4,6 @@ import { HeaderNav } from './components/HeaderNav';
 import { FooterEnd } from './components/FooterEnd';
 import { exitFetch } from './utils/fetcher';
 import { parseSubjectsToYears } from './utils/dataParser';
-import { Year } from './models/Year';
 
 function App() {
   const [courses, setCourses] = useState({});
@@ -17,9 +16,9 @@ function App() {
       try {
         const data = await exitFetch(selectedCourse); // 👈 Pasamos el curso a la función fetch
         const courseMap = parseSubjectsToYears(data.subjects);
-  
+
         setCourses(prev => ({ ...prev, ...courseMap }));
-  
+
         const defaultWeek = Object.keys(courseMap[selectedCourse].weeks)[0];
         setSelectedWeek(defaultWeek);
         setLoading(false);
@@ -28,7 +27,7 @@ function App() {
         setLoading(false);
       }
     };
-  
+
     fetchAndParse();
   }, [selectedCourse]);
 
@@ -37,7 +36,7 @@ function App() {
   const week = courses[selectedCourse]?.getWeek(Number(selectedWeek));
   const days = week?.getSortedDays() || [];
 
-  
+
   const weekOptions = Object.keys(courses[selectedCourse]?.weeks || {}).map(weekNum => {
     const label = courses[selectedCourse].getWeekStartDate(weekNum);
     return {
@@ -54,7 +53,7 @@ function App() {
         onSelectCourse={setSelectedCourse}
         selectedWeek={selectedWeek}
         onSelectWeek={setSelectedWeek}
-        weeks={Object.keys(courses[selectedCourse]?.weeks || {})}
+        weeks={weekOptions}
       />
 
 
