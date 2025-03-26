@@ -1,8 +1,11 @@
 import './styles/hourContainer.css';
-import { subjectColors, defaultColor } from '../utils/subjectColors.js';
-import { subjectLogos, sampleLogo } from '../utils/subjectLogos';
-import { extractSubjectKey } from '../utils/subjectParser.js';
+import './styles/scrollingText.css'; // Asegúrate de importar tu animación
+import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { extractSubjectKey } from '../utils/subjectParser.js';
+import { subjectLogos, sampleLogo } from '../utils/subjectLogos';
+import { subjectColors, defaultColor } from '../utils/subjectColors.js';
+
 
 export const HourContainer = ({ subject, height = '100%' }) => {
   const subjectKey = extractSubjectKey(subject?.name);
@@ -17,6 +20,16 @@ export const HourContainer = ({ subject, height = '100%' }) => {
     height: typeof height === 'number' ? `${height}px` : height,
     width: '100%',
   };
+
+  // 👇 Aquí detectamos overflow en el subject name
+  const nameRef = useRef(null);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+
+  useEffect(() => {
+    if (nameRef.current) {
+      setIsOverflowing(nameRef.current.scrollWidth > nameRef.current.clientWidth);
+    }
+  }, [subject?.name]);
 
   if (subject) {
     return (
@@ -39,18 +52,25 @@ export const HourContainer = ({ subject, height = '100%' }) => {
           />
         </header>
 
-        <main className="flex flex-row justify-between items-center mt-auto pt-1">
-          <h1 className="font-sans text-base font-bold text-center dark:text-white">
-            {subject.name}
-          </h1>
-          <h2 className="font-sans text-base text-center dark:text-white">
-            {subject.classroom}
-          </h2>
-        </main>
+        <main className="flex flex-row justify-between items-center mt-auto pt-1 gap-2">
+  <div className="relative w-[70%] overflow-hidden h-[1.25rem]"> {/* Fijamos altura */}
+    <div
+      ref={nameRef}
+      className={`absolute left-0 font-sans text-base font-bold text-center dark:text-white whitespace-nowrap ${
+        isOverflowing ? 'scrolling-text' : ''
+      }`}
+    >
+      {subject.name}
+    </div>
+  </div>
+  <h2 className="font-sans text-base text-right dark:text-white w-[35%] truncate">
+    {subject.classroom}
+  </h2>
+</main>
       </motion.section>
     );
   } else {
-    // Bloque vacío, sin animación
+    // bloque vacío
     return (
       <section
         style={containerStyle}
