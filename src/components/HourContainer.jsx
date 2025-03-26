@@ -53,20 +53,19 @@ export const HourContainer = ({ subject, height = '100%' }) => {
         </header>
 
         <main className="flex flex-row justify-between items-center mt-auto pt-1 gap-2">
-  <div className="relative w-[70%] overflow-hidden h-[1.25rem]"> {/* Fijamos altura */}
-    <div
-      ref={nameRef}
-      className={`absolute left-0 font-sans text-base font-bold text-center dark:text-white whitespace-nowrap ${
-        isOverflowing ? 'scrolling-text' : ''
-      }`}
-    >
-      {subject.name}
-    </div>
-  </div>
-  <h2 className="font-sans text-base text-right dark:text-white w-[35%] truncate">
-    {subject.classroom}
-  </h2>
-</main>
+          <div className="relative w-[70%] overflow-hidden h-[1.25rem]"> {/* Fijamos altura */}
+            <div
+              ref={nameRef}
+              className={`absolute left-0 font-sans text-base font-bold text-center dark:text-white whitespace-nowrap ${isOverflowing ? 'scrolling-text' : ''
+                }`}
+            >
+              {subject.name}
+            </div>
+          </div>
+          <h2 className="font-sans text-base text-right dark:text-white w-[35%] truncate">
+            {subject.classroom}
+          </h2>
+        </main>
       </motion.section>
     );
   } else {
