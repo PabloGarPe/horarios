@@ -7,14 +7,14 @@ import { parseSubjectsToYears } from "./utils/dataParser";
 
 function App() {
   const [courses, setCourses] = useState({});
-  const [selectedCourse, setSelectedCourse] = useState(1);
-  const [selectedWeek, setSelectedWeek] = useState(null);
+  const [selectedCourse, setSelectedCourse] = useState(2);
+  const [selectedWeek, setSelectedWeek] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchAndParse = async () => {
       try {
-        const data = await exitFetch(selectedCourse); // 👈 Pasamos el curso a la función fetch
+        const data = await exitFetch(selectedCourse);
         if (data.subjects.length === 0){
           setLoading(false);
           return;
