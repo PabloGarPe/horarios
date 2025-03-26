@@ -65,7 +65,7 @@ function App() {
 
       <main
         id="main-container"
-        className="pt-3 px-5 pb-5 flex flex-row justify-between dark:bg-gray-700 overflow-x-auto max-w-full space-x-8"
+        className="pt-3 px-5 pb-5 flex flex-row justify-between bg-[#FFF6DA] dark:bg-gray-700 overflow-x-auto max-w-full space-x-8"
       >
         {courses[selectedCourse]?days.map((day, idx) => (
           <DayContainer key={idx} day={day} />
