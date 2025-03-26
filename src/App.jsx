@@ -13,6 +13,19 @@ function App() {
 
 
   useEffect(() => {
+    const calculateCurrentWeek = () => {
+      const now = new Date();
+      const firstJan = new Date(now.getFullYear(), 0, 1);
+      const pastDaysOfYear = (now - firstJan) / 86400000;
+      return Math.ceil((pastDaysOfYear + firstJan.getDay() + 1) / 7);
+    };
+
+    const currentWeek = calculateCurrentWeek();
+    setSelectedWeek(currentWeek);
+  },[]);
+
+
+  useEffect(() => {
     const fetchAndParse = async () => {
       try {
         const data = await exitFetch(selectedCourse);
@@ -23,8 +36,6 @@ function App() {
         const courseMap = parseSubjectsToYears(data.subjects);
         setCourses((prev) => ({ ...prev, ...courseMap }));
 
-        const defaultWeek = Object.keys(courseMap[selectedCourse].weeks)[0];
-        setSelectedWeek(defaultWeek);
         setLoading(false);
       } catch (error) {
         console.error("Error al cargar los datos:", error);
@@ -36,11 +47,33 @@ function App() {
 
   }, [selectedCourse]);
 
+  const week = courses[selectedCourse]?.getWeek(Number(selectedWeek));
+  const days = week?.getSortedDays() || [];
+
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'ArrowRight') {
+        if (courses[selectedCourse]?.weeks[selectedWeek + 1] === undefined) return;
+        setSelectedWeek((prev) => prev + 1);
+      } else if (event.key === 'ArrowLeft') {
+        if (courses[selectedCourse]?.weeks[selectedWeek - 1] === undefined) return;
+        setSelectedWeek((prev) => prev - 1);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedWeek, courses]);
+
   if (loading)
     return <p className="text-center mt-10 text-lg">Cargando horarios...</p>;
 
-  const week = courses[selectedCourse]?.getWeek(Number(selectedWeek));
-  const days = week?.getSortedDays() || [];
+  
+  
 
   const weekOptions = Object.keys(courses[selectedCourse]?.weeks || {}).map(
     (weekNum) => {
