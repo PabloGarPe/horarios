@@ -1,6 +1,6 @@
 export const exitFetch = async (courseYear) => {
     try {
-      const response = await fetch(`http://156.35.98.89/schedule/year/${courseYear}`, {
+      const response = await fetch(`https://156.35.98.89/schedule/year/${courseYear}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
