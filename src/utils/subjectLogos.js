@@ -1,11 +1,11 @@
 
 export const subjectLogos = {
-    FCR: '../../public/images/cpu.png',
-    AMATII: '../../public/images/amat.png',
-    PYE: '../../public/images/normal.png',
-    GCS: '../../public/images/koch.png',
-    MNUMER: '../../public/images/funcion.png',
-    BD: '../../public/images/bd.png'
+    FCR: '/images/cpu.png',
+    AMATII: '/images/amat.png',
+    PYE: '/images/normal.png',
+    GCS: '/images/koch.png',
+    MNUMER: '/images/funcion.png',
+    BD: '/images/bd.png'
 };
   
 export const sampleLogo = '/logos/default.svg';
