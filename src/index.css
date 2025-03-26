@@ -12,6 +12,7 @@
 
 body {
     background-color: var(--white-perl);
+}
 
 .dark body {
     background-color: var(--color-gray-700);
