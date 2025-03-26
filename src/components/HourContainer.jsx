@@ -2,14 +2,10 @@ import './styles/hourContainer.css';
 import { subjectColors, defaultColor } from '../utils/subjectColors.js';
 import { subjectLogos, sampleLogo } from '../utils/subjectLogos';
 import { extractSubjectKey } from '../utils/subjectParser.js';
-
-const normalizeSubjectName = (subject) => {
-  if (!subject) return '';
-  return subject.split(' ')[0].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-};
+import { motion } from 'framer-motion';
 
 export const HourContainer = ({ subject, height = '100%' }) => {
-  const subjectKey = extractSubjectKey(subject.name);
+  const subjectKey = extractSubjectKey(subject?.name);
   const colorClass = subjectColors[subjectKey] || defaultColor;
 
   const logoImgSrc = (subjectName) => {
@@ -24,11 +20,12 @@ export const HourContainer = ({ subject, height = '100%' }) => {
 
   if (subject) {
     return (
-      <section
-        style={{
-          height,
-          transition: 'all 1s ease-in-out',
-        }}
+      <motion.section
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.3 }}
+        style={containerStyle}
         className={`flex flex-col justify-between w-full px-2 pt-1 pb-1 border-2 ${colorClass}`}
       >
         <header className="flex flex-row justify-between items-center">
@@ -42,7 +39,6 @@ export const HourContainer = ({ subject, height = '100%' }) => {
           />
         </header>
 
-        {/* Bloque inferior que se alinea abajo */}
         <main className="flex flex-row justify-between items-center mt-auto pt-1">
           <h1 className="font-sans text-base font-bold text-center dark:text-white">
             {subject.name}
@@ -51,9 +47,10 @@ export const HourContainer = ({ subject, height = '100%' }) => {
             {subject.classroom}
           </h2>
         </main>
-      </section>
+      </motion.section>
     );
   } else {
+    // Bloque vacío, sin animación
     return (
       <section
         style={containerStyle}

@@ -1,11 +1,12 @@
 import './styles/dayContainer.css';
 import { HourContainer } from './HourContainer';
 import { toMinutes } from '../utils/timeUtils';
+import { motion } from 'framer-motion'; // ✅ solo necesitas `motion`
 
 const START_HOUR = 9;
 const END_HOUR = 20;
-const INTERVAL = 30; // 30 minutos por fila
-const TOTAL_ROWS = ((END_HOUR - START_HOUR) * 60) / INTERVAL; // 22 filas
+const INTERVAL = 30;
+const TOTAL_ROWS = ((END_HOUR - START_HOUR) * 60) / INTERVAL;
 
 export const DayContainer = ({ day }) => {
   const sortedSubjects = [...day.subjects].sort((a, b) =>
@@ -18,7 +19,6 @@ export const DayContainer = ({ day }) => {
         <h2>{day.weekDay} {day.dia}/{day.mes}</h2>
       </header>
 
-      {/* Grid de franjas horarias */}
       <main
         className="grid w-full px-2 gap-y-2 pt-5"
         style={{
@@ -32,15 +32,19 @@ export const DayContainer = ({ day }) => {
           const durationSlots = (end - start) / INTERVAL;
 
           return (
-            <div
+            <motion.div
               key={idx}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, delay: idx * 0.05 }}
               style={{
                 gridRowStart: startRow,
                 gridRowEnd: `span ${durationSlots}`,
               }}
             >
               <HourContainer subject={subject} />
-            </div>
+            </motion.div>
           );
         })}
       </main>
