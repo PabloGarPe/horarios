@@ -52,17 +52,19 @@ export const HourContainer = ({ subject, height = '100%' }) => {
           />
         </header>
 
-        <main className="flex flex-row justify-between items-center mt-auto pt-1 gap-2">
-          <div className="relative w-[70%] overflow-hidden h-[1.25rem]"> {/* Fijamos altura */}
+        <main className="flex flex-row items-center mt-auto pt-1 gap-2 overflow-hidden">
+          <div
+            className="flex-grow relative overflow-hidden h-[1.25rem] max-w-full"
+            ref={nameRef}
+          >
             <div
-              ref={nameRef}
-              className={`absolute left-0 font-sans text-base font-bold text-center dark:text-white whitespace-nowrap ${isOverflowing ? 'scrolling-text' : ''
+              className={`absolute top-0 left-0 font-sans text-base font-bold text-left dark:text-white whitespace-nowrap ${isOverflowing ? 'scrolling-text' : ''
                 }`}
             >
               {subject.name}
             </div>
           </div>
-          <h2 className="font-sans text-base text-right dark:text-white w-[35%] truncate">
+          <h2 className="font-sans text-base text-right dark:text-white flex-shrink-0 w-auto px-1">
             {subject.classroom}
           </h2>
         </main>
