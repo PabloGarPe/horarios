@@ -1,4 +1,4 @@
-import linkedinLogo from '../images/linkedin-ico.svg'
+import linkedinLogo from '/images/linkedin-ico.svg'
 
 export const FooterEnd = () => {
     return (

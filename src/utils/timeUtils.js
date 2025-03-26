@@ -4,3 +4,8 @@ export const getDurationInMinutes = (start, end) => {
     return (endH * 60 + endM) - (startH * 60 + startM);
   };
   
+export const toMinutes = (time) => {
+    const [hours, minutes] = time.split(':').map(Number);
+    return hours * 60 + minutes;
+};
+  
