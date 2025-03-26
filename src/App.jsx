@@ -7,9 +7,10 @@ import { parseSubjectsToYears } from "./utils/dataParser";
 
 function App() {
   const [courses, setCourses] = useState({});
-  const [selectedCourse, setSelectedCourse] = useState(2);
+  const [selectedCourse, setSelectedCourse] = useState(parseInt(localStorage.getItem('selectedCourse')) || 2);
   const [selectedWeek, setSelectedWeek] = useState(0);
   const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const fetchAndParse = async () => {
@@ -32,6 +33,7 @@ function App() {
     };
 
     fetchAndParse();
+
   }, [selectedCourse]);
 
   if (loading)
