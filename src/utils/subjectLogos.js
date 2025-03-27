@@ -1,4 +1,3 @@
-
 export const subjectLogos = {
     FCR: '/images/cpu.avif',
     AMATII: '/images/amat.avif',
@@ -8,5 +7,6 @@ export const subjectLogos = {
     BD: '/images/bd.avif'
 };
   
-export const sampleLogo = '/logos/default.svg';
+export const defaultLogo = '/images/mateo-img.avif';
   
+//export const defaultLogo = '/images/default-img.avif';

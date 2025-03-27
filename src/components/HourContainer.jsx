@@ -3,7 +3,7 @@ import './styles/scrollingText.css'; // Asegúrate de importar tu animación
 import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { extractSubjectKey } from '../utils/subjectParser.js';
-import { subjectLogos, sampleLogo } from '../utils/subjectLogos';
+import { subjectLogos, defaultLogo } from '../utils/subjectLogos';
 import { subjectColors, defaultColor } from '../utils/subjectColors.js';
 
 
@@ -13,7 +13,7 @@ export const HourContainer = ({ subject, height = '100%' }) => {
 
   const logoImgSrc = (subjectName) => {
     const key = extractSubjectKey(subjectName);
-    return subjectLogos[key] || sampleLogo;
+    return subjectLogos[key] || defaultLogo;
   };
 
   const containerStyle = {
