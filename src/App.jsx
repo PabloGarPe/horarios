@@ -102,7 +102,7 @@ function App() {
       >
         {courses[selectedCourse]?days.map((day, idx) => (
           <DayContainer key={idx} day={day} />
-        )):<p className="text-center mt-10 text-lg">No hay horarios para esta semana</p>}
+        )):<p className="text-center mt-10 text-4xl dark:text-white">No hay horarios para esta semana</p>}
       </main>
 
       <FooterEnd />
