@@ -76,7 +76,7 @@ Podrás encontrar más detalles técnicos en la carpeta `docs`:
 
 ---
 ## Autores
-Este proyecto ha sido desarrollado por @pabloGarPe y @Mendana
+Este proyecto ha sido desarrollado por [@pabloGarPe](https://github.com/PabloGarPe/) y [@Mendana](https://github.com/Mendana/)
 
 
 Documentación del Backend en su respectivo repositorio
