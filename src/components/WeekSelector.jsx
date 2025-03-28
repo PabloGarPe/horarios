@@ -11,7 +11,7 @@ export const WeekSelector = ({ weeks = [], selectedWeek, onSelectWeek }) => {
               border-black border-2 rounded-none lg:text-xl text-base
               hover:translate-x-0 hover:translate-y-0 transition-all font-mono font-bold
               -translate-x-2 -translate-y-2 bg-white focus:outline-none
-              dark:text-white dark:bg-gray-600"
+              dark:text-white dark:bg-gray-600 cursor-pointer"
         >
           {weeks.map((week) => {
             return (
