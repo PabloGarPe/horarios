@@ -77,7 +77,9 @@ function App() {
 
   const weekOptions = Object.keys(courses[selectedCourse]?.weeks || {}).map(
     (weekNum) => {
-      const label = courses[selectedCourse].getWeekStartDate(weekNum);
+      const label = typeof courses[selectedCourse]?.getWeekStartDate === 'function'
+        ? courses[selectedCourse].getWeekStartDate(weekNum)
+        : `Semana ${weekNum}`;
       return {
         value: weekNum,
         label: label || `Semana ${weekNum}`,
