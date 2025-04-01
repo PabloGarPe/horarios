@@ -71,10 +71,7 @@ function App() {
 
   if (loading)
     return <p className="text-center mt-10 text-lg">Cargando horarios...</p>;
-
   
-  
-
   const weekOptions = Object.keys(courses[selectedCourse]?.weeks || {}).map(
     (weekNum) => {
       const label = typeof courses[selectedCourse]?.getWeekStartDate === 'function'
