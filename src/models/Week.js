@@ -11,12 +11,17 @@ export class Week {
 
   addSubject(subject) {
     const { dia, mes, year, diaSemana } = subject.day;
-
-    if (!this.days[diaSemana]) {
-      this.days[diaSemana] = new Day(dia, mes, year, diaSemana);
+  
+    // 🔐 Normalización segura del día de la semana
+    const normalizedDay =
+      diaSemana?.trim().charAt(0).toUpperCase() +
+      diaSemana?.trim().slice(1).toLowerCase();
+  
+    if (!this.days[normalizedDay]) {
+      this.days[normalizedDay] = new Day(dia, mes, year, normalizedDay);
     }
-
-    this.days[diaSemana].addSubject(subject);
+  
+    this.days[normalizedDay].addSubject(subject);
   }
 
   getSortedDays() {
@@ -30,6 +35,7 @@ export class Week {
       const dia = date.getDate();
       const mes = date.getMonth() + 1;
       const year = date.getFullYear();
+      console.log("Dias generados por getSortedDays:", this.days);
 
       // Si el día ya existe con asignaturas, lo usamos
       return this.days[dayName] || new Day(dia, mes, year, dayName);

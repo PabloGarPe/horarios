@@ -29,35 +29,34 @@ function App() {
     const fetchAndParse = async () => {
       try {
         const data = await exitFetch(selectedCourse);
-        if (data.subjects.length === 0){
+        if (data.subjects.length === 0) {
           setLoading(false);
           return;
         }
   
         const courseMap = parseSubjectsToYears(data.subjects);
-        const newCourse = courseMap[selectedCourse];
+        const newCourseInstance = courseMap[selectedCourse];
   
         setCourses((prev) => {
-          // Si ya hay un curso guardado, lo usamos, si no usamos el nuevo
           const prevCourse = prev[selectedCourse];
-        
-          // Si no había nada previo, simplemente guardamos el nuevo tal cual
+  
+          // Si no había curso previo, simplemente lo añadimos
           if (!prevCourse) {
             return {
               ...prev,
-              [selectedCourse]: courseMap[selectedCourse],
+              [selectedCourse]: newCourseInstance,
             };
           }
-        
-          // Si sí había uno previo, agregamos sus semanas a la instancia original (que es clase Year)
-          const newWeeks = courseMap[selectedCourse].weeks || {};
+  
+          // Si sí había uno previo, le añadimos las semanas nuevas
+          const newWeeks = newCourseInstance.weeks || {};
           Object.entries(newWeeks).forEach(([weekNum, week]) => {
             prevCourse.weeks[weekNum] = week;
           });
-        
+  
           return {
             ...prev,
-            [selectedCourse]: prevCourse, // mantenemos la misma instancia
+            [selectedCourse]: prevCourse,
           };
         });
   
@@ -69,7 +68,7 @@ function App() {
     };
   
     fetchAndParse();
-  }, [selectedCourse]);
+  }, [selectedCourse])
 
   const week = courses[selectedCourse]?.getWeek(Number(selectedWeek));
   const days = week?.getSortedDays() || [];
@@ -107,6 +106,12 @@ function App() {
       };
     }
   );
+
+  console.log("Días de la semana seleccionada:", days);
+days.forEach((d) => {
+  console.log(`${d.weekDay} ${d.dia}/${d.mes} - Subjects:`, d.subjects?.length);
+});
+
 
   return (
     <>
