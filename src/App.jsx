@@ -33,18 +33,42 @@ function App() {
           setLoading(false);
           return;
         }
+  
         const courseMap = parseSubjectsToYears(data.subjects);
-        setCourses((prev) => ({ ...prev, ...courseMap }));
-
+        const newCourse = courseMap[selectedCourse];
+  
+        setCourses((prev) => {
+          // Si ya hay un curso guardado, lo usamos, si no usamos el nuevo
+          const prevCourse = prev[selectedCourse];
+        
+          // Si no había nada previo, simplemente guardamos el nuevo tal cual
+          if (!prevCourse) {
+            return {
+              ...prev,
+              [selectedCourse]: courseMap[selectedCourse],
+            };
+          }
+        
+          // Si sí había uno previo, agregamos sus semanas a la instancia original (que es clase Year)
+          const newWeeks = courseMap[selectedCourse].weeks || {};
+          Object.entries(newWeeks).forEach(([weekNum, week]) => {
+            prevCourse.weeks[weekNum] = week;
+          });
+        
+          return {
+            ...prev,
+            [selectedCourse]: prevCourse, // mantenemos la misma instancia
+          };
+        });
+  
         setLoading(false);
       } catch (error) {
         console.error("Error al cargar los datos:", error);
         setLoading(false);
       }
     };
-
+  
     fetchAndParse();
-
   }, [selectedCourse]);
 
   const week = courses[selectedCourse]?.getWeek(Number(selectedWeek));
@@ -87,7 +111,7 @@ function App() {
   return (
     <>
       <HeaderNav
-        courses={Object.keys(courses)} // ej: [1, 2, 3, 4]
+        courses={courses} // ej: [1, 2, 3, 4]
         selectedCourse={selectedCourse}
         onSelectCourse={setSelectedCourse}
         selectedWeek={selectedWeek}

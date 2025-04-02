@@ -1,4 +1,5 @@
 import { Week } from './Week.js';
+import { getISOWeek } from 'date-fns';
 
 export class Year {
     constructor(year) {
@@ -8,10 +9,8 @@ export class Year {
 
     getWeekNumber(dia, mes, year) {
         const date = new Date(year, mes - 1, dia);
-        const firstJan = new Date(date.getFullYear(), 0, 1);
-        const pastDaysOfYear = (date - firstJan) / 86400000;
-        return Math.ceil((pastDaysOfYear + firstJan.getDay() + 1) / 7);
-    }
+        return getISOWeek(date);
+      }
 
     addSubject(subject) {
         const { dia, mes, year} = subject.day;
