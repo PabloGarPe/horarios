@@ -4,6 +4,7 @@ import { HeaderNav } from "./components/HeaderNav";
 import { FooterEnd } from "./components/FooterEnd";
 import { exitFetch } from "./utils/fetcher";
 import { parseSubjectsToYears } from "./utils/dataParser";
+import { getISOWeek } from 'date-fns';
 
 function App() {
   const [courses, setCourses] = useState({});
@@ -13,16 +14,19 @@ function App() {
 
 
   useEffect(() => {
-    const calculateCurrentWeek = () => {
-      const now = new Date();
-      const firstJan = new Date(now.getFullYear(), 0, 1);
-      const pastDaysOfYear = (now - firstJan) / 86400000;
-      return Math.ceil((pastDaysOfYear + firstJan.getDay() + 1) / 7);
-    };
-
-    const currentWeek = calculateCurrentWeek();
-    setSelectedWeek(currentWeek);
-  },[]);
+    const currentWeek = getISOWeek(new Date()); // Semana actual real
+    const availableWeeks = Object.keys(courses[selectedCourse]?.weeks || {}).map(Number).sort((a, b) => a - b);
+  
+    if (availableWeeks.length > 0) {
+      // Si la semana actual existe entre las disponibles, la usamos
+      if (availableWeeks.includes(currentWeek)) {
+        setSelectedWeek(currentWeek);
+      } else {
+        // Si no, usamos la primera semana que haya
+        setSelectedWeek(availableWeeks[0]);
+      }
+    }
+  }, [courses, selectedCourse]);
 
 
   useEffect(() => {
@@ -35,28 +39,28 @@ function App() {
         }
   
         const courseMap = parseSubjectsToYears(data.subjects);
-        const newCourseInstance = courseMap[selectedCourse];
   
         setCourses((prev) => {
           const prevCourse = prev[selectedCourse];
-  
-          // Si no había curso previo, simplemente lo añadimos
-          if (!prevCourse) {
+        
+          const newCourseInstance = courseMap[selectedCourse];
+        
+          // Si ya hay curso, combinamos las semanas en el mismo objeto
+          if (prevCourse) {
+            Object.entries(newCourseInstance.weeks || {}).forEach(([weekNum, week]) => {
+              prevCourse.weeks[weekNum] = week;
+            });
+        
             return {
               ...prev,
-              [selectedCourse]: newCourseInstance,
+              [selectedCourse]: prevCourse // <- mantenemos la instancia original (clase Year)
             };
           }
-  
-          // Si sí había uno previo, le añadimos las semanas nuevas
-          const newWeeks = newCourseInstance.weeks || {};
-          Object.entries(newWeeks).forEach(([weekNum, week]) => {
-            prevCourse.weeks[weekNum] = week;
-          });
-  
+        
+          // Si no había, usamos el nuevo directamente (que sí es una instancia Year)
           return {
             ...prev,
-            [selectedCourse]: prevCourse,
+            [selectedCourse]: newCourseInstance
           };
         });
   
