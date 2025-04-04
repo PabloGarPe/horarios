@@ -66,7 +66,6 @@ function App() {
   
         setLoading(false);
       } catch (error) {
-        console.error("Error al cargar los datos:", error);
         setLoading(false);
       }
     };
@@ -111,10 +110,6 @@ function App() {
     }
   );
 
-  console.log("Días de la semana seleccionada:", days);
-days.forEach((d) => {
-  console.log(`${d.weekDay} ${d.dia}/${d.mes} - Subjects:`, d.subjects?.length);
-});
 
 
   return (

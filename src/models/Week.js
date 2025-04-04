@@ -35,7 +35,6 @@ export class Week {
       const dia = date.getDate();
       const mes = date.getMonth() + 1;
       const year = date.getFullYear();
-      console.log("Dias generados por getSortedDays:", this.days);
 
       // Si el día ya existe con asignaturas, lo usamos
       return this.days[dayName] || new Day(dia, mes, year, dayName);
