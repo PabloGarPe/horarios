@@ -25,7 +25,7 @@ export class Year {
         return this.weeks[weekNumber] || null;
     }
 
-    getWeekStartDate(weekNumber) {
+    getWeekLimitsDate(weekNumber) {
         const week = this.weeks[weekNumber];
         if (!week) return null;
       
@@ -39,6 +39,11 @@ export class Year {
           return `Semana ${weekNumber}`;
         }
 
-        return `${firstDay.weekDay} ${firstDay.dia}/${firstDay.mes}`;
+        const lastDay = days[days.length - 1];
+        if (lastDay.dia === undefined || lastDay.mes === undefined) {
+          return `Semana ${weekNumber}`;
+        }
+
+        return `${firstDay.dia}/${firstDay.mes} - ${lastDay.dia}/${lastDay.mes}`;
       }
 }
