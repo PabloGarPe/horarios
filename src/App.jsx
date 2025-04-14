@@ -35,8 +35,19 @@ function App() {
       .sort();
 
     if (weeks.length > 0) {
-      setSelectedWeek(weeks[0]);
-      localStorage.setItem("selectedWeek", weeks[0]);
+      // Obtengo la semana acutual
+      const currentDate = new Date();
+      const currentWeek = getISOWeek(currentDate);
+      
+      // Buscar la semana más cercana si la actual no está disponible
+      const closestWeek = weeks.reduce((prev, curr) => 
+        Math.abs(curr - currentWeek) < Math.abs(prev - currentWeek) ? curr : prev
+      );
+
+      setSelectedWeek(closestWeek);
+      localStorage.setItem("selectedWeek", closestWeek);
+      // setSelectedWeek(weeks[0]);
+      // localStorage.setItem("selectedWeek", weeks[0]);
     }
   }, [selectedSemester, courseMap]);
 
