@@ -14,3 +14,9 @@ export function getDateOfISOWeek(week, year) {
     return ISOweekStart;
   }
   
+  // utils/dateUtils.js (o donde prefieras)
+export function getWeekDayName(year, month, day) {
+  const date = new Date(year, month - 1, day);
+  const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+  return days[date.getDay()];
+}
