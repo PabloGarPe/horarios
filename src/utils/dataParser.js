@@ -18,7 +18,7 @@ export const parseSubjectsToYears = (subjectsArray) => {
     const subject = new Subject({
       hora_inicio: item.clase_hora_inicio,
       hora_final: item.clase_hora_final,
-      subject_name: item.clase_subjectNombre,
+      subject_name: `${item.clase_subjectNombre}-${item.clase_tipo}`,
       subject_year: item.clase_year,
       priority: 1, // o algún valor si tenés lógica de prioridades
       clase: item.clase_aula,
