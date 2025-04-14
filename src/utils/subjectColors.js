@@ -24,9 +24,9 @@ export const subjectColors = {
     //2 PCEO - 2doSemestre
     FCR: 'bg-[#a94a4a] border-[#872f2f]',
     AMATII: 'bg-[#4d6b74] border-[#354950]',
-    GCS: 'bg-[#927bbd] border-[#6d5a94]',
-    MNUMER: 'bg-[#c7923e] border-[#a56e1d]',
-    BD: 'bg-[#d8b4a0] border-[#b89078]',
+    GCS: 'bg-[#5b865c] border-[#3c5d3e]',
+    MNUMER: 'bg-[#927bbd] border-[#6d5a94]',
+    BD: 'bg-[#c7923e] border-[#a56e1d]',
 
     //3 PCEO - 1erSemestre
     MOR: 'bg-[#a94a4a] border-[#872f2f]',
