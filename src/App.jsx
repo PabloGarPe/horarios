@@ -5,7 +5,7 @@ import { HeaderNav } from "./components/HeaderNav";
 import { FooterEnd } from "./components/FooterEnd";
 import { exitFetch } from "./utils/fetcher";
 import { parseSubjectsToYears } from "./utils/dataParser";
-import { getISOWeek } from "date-fns";
+import { getISOWeek, getYear } from "date-fns";
 
 function App() {
   const [userSource, setUserSource] = useState(null);
@@ -77,9 +77,14 @@ function App() {
         return;
       }
 
+      const currentDate = new Date();
+      let defaultYear = getYear(currentDate);
+      console.log("Año actual:", defaultYear);
+      console.log("Años disponibles:", years);
       setCourseMap(parsed);
-      const defaultYear = years[0];
+      if (!years.includes(defaultYear)) defaultYear = years[0];
       setSelectedSemester(defaultYear);
+      console.log("Semestre seleccionado:", defaultYear);
       localStorage.setItem("selectedSemester", defaultYear);
 
       const weeks = Object.keys(parsed[defaultYear]?.weeks || {}).map(Number).sort();
