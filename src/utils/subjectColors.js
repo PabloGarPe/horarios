@@ -9,7 +9,7 @@ export const subjectColors = {
     AMD: 'bg-[#a94a4a] border-[#872f2f]',
     MP: 'bg-[#4d6b74] border-[#354950]',
     ESTYPROB: 'bg-[#5b865c] border-[#3c5d3e]',
-    IAMAT: 'bg-[#d8b4a0] border-[#b89078]',
+    IAMAT: 'bg-[#c18e72] border-[#a96d48]',
 
 
 
@@ -19,7 +19,7 @@ export const subjectColors = {
     CPM: 'bg-[#5b865c] border-[#3c5d3e]',
     TOPI: 'bg-[#927bbd] border-[#6d5a94]',
     AMATI: 'bg-[#c7923e] border-[#a56e1d]',
-    PYE: 'bg-[#d8b4a0] border-[#b89078]',
+    PYE: 'bg-[#c18e72] border-[#a96d48]',
 
     //2 PCEO - 2doSemestre
     FCR: 'bg-[#a94a4a] border-[#872f2f]',
@@ -34,7 +34,7 @@ export const subjectColors = {
     TEC: 'bg-[#5b865c] border-[#3c5d3e]',
     SEW: 'bg-[#927bbd] border-[#6d5a94]',
     AC: 'bg-[#c7923e] border-[#a56e1d]',
-    IE: 'bg-[#d8b4a0] border-[#b89078]',
+    IE: 'bg-[#c18e72] border-[#a96d48]',
 
     //3 PCEO - 2doSemestre
     PROGM: 'bg-[#a94a4a] border-[#872f2f]',
@@ -49,7 +49,7 @@ export const subjectColors = {
     IPS: 'bg-[#5b865c] border-[#3c5d3e]',
     DS: 'bg-[#927bbd] border-[#6d5a94]',
     RI: 'bg-[#c7923e] border-[#a56e1d]',
-    AI: 'bg-[#d8b4a0] border-[#b89078]',
+    AI: 'bg-[#c18e72] border-[#a96d48]',
 
     //4 PCEO - 2doSemestre
     EDII: 'bg-[#a94a4a] border-[#872f2f]',
@@ -64,7 +64,7 @@ export const subjectColors = {
     SI: 'bg-[#5b865c] border-[#3c5d3e]',
     IR: 'bg-[#927bbd] border-[#6d5a94]',
     CVVS: 'bg-[#c7923e] border-[#a56e1d]',
-    AII: 'bg-[#d8b4a0] border-[#b89078]',
+    AII: 'bg-[#c18e72] border-[#a96d48]',
 
     //5 PCEO - 2doSemestre
     TOPII: 'bg-[#a94a4a] border-[#872f2f]',
