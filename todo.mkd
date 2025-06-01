@@ -1,9 +1,0 @@
-## TODO
-1. Comprobar lo de que las semanas empiecen en la 6 ✅
-2. Comprobar porque no salen las pl de métodos, quizá por ser de 1h30min dan problemas ✅
-
-
-
-## TODO Extras
-1. Añadir lo de los logos ✅
-2. Añadir colores a las asignaturas con el diccionario de colores ✅
