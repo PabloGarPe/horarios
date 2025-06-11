@@ -30,7 +30,8 @@ body {
 .dark body {
     background-color: var(--color-gray-700);
 }
-/* 
+
+
 #main-container {
     min-height: calc(100vh - 166px - 204px);
-} */
+} 

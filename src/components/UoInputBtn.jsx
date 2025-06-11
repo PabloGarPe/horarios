@@ -17,17 +17,14 @@ export const UoInputBtn = ({ value, onChange, onSubmit, isActive }) => {
 
   const handleKeyDown = (e) => {
     const trimmed = localValue.trim();
-    if (
-      e.key === "Enter" &&
-      (trimmed.length >= 6 || trimmed.startsWith("curso"))
-    ) {
+    if (e.key === "Enter" && trimmed.length >= 6) {
       onSubmit(trimmed);
     }
   };
 
   const handleBlur = () => {
     const trimmed = localValue.trim();
-    if (trimmed.length >= 6 || trimmed.startsWith("curso")) {
+    if (trimmed.length >= 6) {
       onSubmit(trimmed);
     }
   };
