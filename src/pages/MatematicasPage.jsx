@@ -178,13 +178,13 @@ export const MatematicasPage = () => {
         />
 
         {loading ? (
-          <p className="text-center mt-10 text-lg">Cargando horarios...</p>
+          <p id="main-container" className="text-center mt-10 text-lg">Cargando horarios...</p>
         ) : noResults ? (
-          <p className="text-center mt-10 text-lg text-red-600">
+          <p id="main-container" className="text-center mt-10 text-lg text-red-600">
             No se encontraron horarios para el curso o UO seleccionado.
           </p>
         ) : !currentCourse ? (
-          <p className="text-center mt-10 text-lg">
+          <p id="main-container" className="text-center mt-10 text-lg">
             Selecciona un curso o introduce una UO para ver los horarios.
           </p>
         ) : (
