@@ -17,7 +17,8 @@ export const UserSelectModal = ({ onClose }) => {
     { label: "Física y Matemáticas", value: "fisimates", path: "/fisimates" },
     { label: "Matemáticas y Física", value: "matesfis", path: "/matesfis" },
     { label: "Matemáticas", value: "mates", path: "/mates" },
-    { label: "Informática", value: "inform", path: "/inform" }
+    { label: "Informática", value: "inform", path: "/inform" },
+    { label: "Física", value: "fisica", path: "/fisica" },
   ];
 
   const handleSelectTitulacion = (path) => {
