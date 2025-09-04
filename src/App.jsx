@@ -6,6 +6,7 @@ import { InfomatesPage } from "./pages/InfomatesPage";
 import { FisimatesPage } from "./pages/FisimatesPage";
 import { InformaticaPage } from "./pages/InformaticaPage";
 import { MatesFisPage } from "./pages/MatesFisPage";
+import { FisicaPage } from "./pages/FisicaPage";
 
 function App() {
   return (
