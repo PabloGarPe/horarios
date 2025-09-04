@@ -17,6 +17,7 @@ function App() {
           <Route path="/fisimates" element={<FisimatesPage />} />
           <Route path="/inform" element={<InformaticaPage />} />
           <Route path="/matesfis" element={<MatesFisPage />} />
+          <Route path='/fisica' element={<FisicaPage />} />
           <Route path="/" element={<Navigate to="/infomates" replace />} />
         </Routes>
       </BrowserRouter>
