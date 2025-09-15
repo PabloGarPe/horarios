@@ -6,6 +6,7 @@ import { exitFetch } from "../utils/fetcher";
 import { parseSubjectsToYears } from "../utils/dataParser";
 import { getISOWeek, getYear } from "date-fns";
 import { UserSelectModal } from "./UserSelectModal";
+import { WeekNavigationButtons } from "./WeekNavigationButtons";
 
 export const ScheduleView = ({ defaultTitulacion, titulacion, cursos }) => {
   const [userSource, setUserSource] = useState(null);
@@ -175,6 +176,15 @@ export const ScheduleView = ({ defaultTitulacion, titulacion, cursos }) => {
               <DayContainer key={idx} day={day} />
             ))}
           </main>
+        )}
+
+        {/* Botones de navegación de semanas */}
+        {!loading && !noResults && currentCourse && weekOptions.length > 1 && (
+          <WeekNavigationButtons 
+            weeks={weekOptions}
+            selectedWeek={selectedWeek}
+            onSelectWeek={handleWeekChange}
+          />
         )}
 
         <FooterEnd />

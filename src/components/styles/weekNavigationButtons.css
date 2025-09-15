@@ -1,0 +1,59 @@
+/* Estilos para los botones de navegación de semanas */
+.week-navigation-btn {
+  transition: all 0.2s ease;
+}
+
+.week-navigation-btn:hover {
+  transform: scale(1.05);
+}
+
+.week-navigation-btn:active {
+  transform: scale(0.95);
+}
+
+/* Adaptación para modo oscuro */
+.dark .week-navigation-btn {
+  background-color: #4b5563;
+}
+
+/* Animación sutil de los botones */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+  70% {
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+.week-navigation-btn:not(:disabled):hover {
+  animation: pulse 2s infinite;
+}
+
+/* Animación de clic */
+@keyframes clickEffect {
+  0% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.week-navigation-btn:active:not(:disabled) {
+  animation: clickEffect 0.3s ease;
+}
+
+/* Media queries para adaptar mejor a móviles */
+@media (max-width: 768px) {
+  .week-navigation-btn {
+    width: 3rem;
+    height: 3rem;
+  }
+}
