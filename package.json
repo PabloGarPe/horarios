@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "ajv": "^8.17.1",
+    "ajv": "^8.18.0",
     "date-fns": "^4.1.0",
     "firebase": "^12.9.0",
     "framer-motion": "^12.23.12",
